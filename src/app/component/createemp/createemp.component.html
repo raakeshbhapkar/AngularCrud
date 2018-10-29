@@ -1,0 +1,37 @@
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{panelTitle}}</h3>
+    </div>
+    <div class="panel-body">
+
+      <div class="form-group" [class.has-error]="titleControl.invalid && titleControl.touched">
+        <label for="title" class="control-label">Title</label>
+        <input id="title" required type="text" class="form-control" name="title" [(ngModel)]="title" #titleControl="ngModel">
+        <span class="help-block" *ngIf="titleControl.invalid && titleControl.touched">
+    Title is required
+  </span>
+      </div>
+
+
+      <div class="form-group" [class.has-error]="descriptionControl.invalid && descriptionControl.touched">
+        <label for="description" class="control-label">Description</label>
+        <input id="description" required type="text" class="form-control" name="description" [(ngModel)]="description" #descriptionControl="ngModel">
+        <span class="help-block" *ngIf="descriptionControl.invalid && descriptionControl.touched">
+    Description is required
+  </span>
+      </div>
+
+
+
+
+
+
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-primary" [disabled]="employeeForm.invalid" type="submit">Save</button>
+    </div>
+  </div>
+</form>
+{{employeeForm.value | json}}
+<br/> {{employee | json}}

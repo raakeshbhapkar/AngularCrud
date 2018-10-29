@@ -1,0 +1,22 @@
+
+  <h2 #h2Variable></h2>
+<table class="table">
+  <thead>
+    <th>Titles</th>
+    <th>Description</th>
+     <th>Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employeeone of employees.documents">
+      <td>{{employeeone.fields.title.stringValue}}</td>
+      <td>{{employeeone.fields.description.stringValue}}</td>
+      
+       <td>
+           <button class="btn btn-primary"  (click)="editEmployee(employeeone.name)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteEmployee(employeeone.name)">Delete</button>
+       </td>
+    </tr>
+
+  </tbody>
+</table>
+
